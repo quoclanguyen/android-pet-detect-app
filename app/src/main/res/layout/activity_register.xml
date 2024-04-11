@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app_in_use"
+    tools:context=".RegisterActivity">
+    <ImageView
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:paddingBottom="300dp"
+        android:id="@+id/wave"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/wave"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/catndogs"
+        app:layout_constraintLeft_toLeftOf="@id/catndogs"
+        app:layout_constraintRight_toRightOf="@id/catndogs"
+        android:fontFamily="@font/italiana_reg"
+        android:textSize="55sp"
+        android:textColor="@color/white"
+        android:id="@+id/app_title"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/catndogs"
+        android:layout_marginBottom="175dp"
+        android:text="@string/app_name_cap"
+        />
+    <ImageView
+        app:layout_constraintLeft_toLeftOf="@id/wave"
+        app:layout_constraintTop_toTopOf="@id/wave"
+        app:layout_constraintRight_toRightOf="@id/wave"
+        android:id="@+id/catndogs"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/cats_n_dogs"
+        />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:padding="18dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kaisei_reg"
+            android:textStyle="bold"
+            android:textColor="@color/brown"
+            android:textSize="20sp"
+            android:shadowColor="@color/shadow"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="2"
+            android:text="@string/register" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/mailReg"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:fontFamily="@font/kameron_reg"
+                android:hint="@string/mail_hint"
+                android:inputType="textEmailAddress"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:scaleType="center"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/mail" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/passReg"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:fontFamily="@font/kameron_reg"
+                android:maxLength="16"
+                android:hint="@string/pass_hint"
+                android:inputType="textPassword"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:id="@+id/seePassReg"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/eye" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/reEnterPass"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:fontFamily="@font/kameron_reg"
+                android:hint="@string/repass_hint"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:id="@+id/seeRePass"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/eye" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/buttonReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/italiana_reg"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginStart="30dp"
+            android:onClick="registerAccount"
+            android:layout_marginEnd="30dp"
+            android:text="@string/register_btn" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

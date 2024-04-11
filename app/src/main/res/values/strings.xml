@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Petreco</string>
+    <string name="app_name_cap">PETRECO</string>
+    <string name="app_des">pet\'s breed recognization application</string>
+    <string name="register_hint">Don\'t have an account?</string>
+    <string name="mail_hint">Email address</string>
+    <string name="pass_hint">Password</string>
+    <string name="repass_hint">Re-enter password</string>
+    <string name="register">Register New Account</string>
+    <string name="register_btn">Register</string>
+    <string name="signup">Signup Here</string>
+    <string name="welcome">Welcome Back</string>
+    <string name="login">Login</string>
+</resources>
