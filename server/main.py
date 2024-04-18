@@ -22,7 +22,7 @@ app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 
 executor = ThreadPoolExecutor(2)
-OTP_TTL = 10 # 3 minutes
+OTP_TTL = 40 # 3 minutes
 accounts = {
     # "userToken": {"password":hashed, "OTP":6 digits string, "OTPtimestamp":timestamp, "registered":True/False}
 }
@@ -36,10 +36,33 @@ def OTPAutoDestroy(token):
     print(accounts)
     
 
+@app.route("/login", methods = ['POST'])
+def login():
+    res = request.json
+    print(res)
+    email = res.get('email')
+    passw = res.get('password')
+    
+    m = hashlib.sha256()
+    m.update(str(email).encode("utf-8"))
+    hexToken = m.hexdigest()
+    accCreated = accounts.get(hexToken, "null")
+    if accCreated == "null":
+        return "Account does not exist", 404
+    print(accounts)
+    if accounts[hexToken]['registered'] == False:
+        return "Account does not exist", 404
+    print(passw)
+    if passw != accounts[hexToken]['password']:
+        return "Wrong password", 401
+    
+    return "Login success", 200
+
 @app.route("/register", methods = ['POST'])
 def register():
     global otpThread
     res = request.json
+    print(res)
     email = res.get('email')
     passw = res.get('password')
     otp = "".join((random.sample("0 1 2 3 4 5 6 7 8 9".split(), counts = [100]*10, k = 6)))
@@ -47,6 +70,11 @@ def register():
     m = hashlib.sha256()
     m.update(str(email).encode("utf-8"))
     hexToken = m.hexdigest()
+    try:
+        if accounts[hexToken]['registered']:
+            return "Email used", 409
+    except:
+        pass
     newDict = {}
     newDict["password"] = passw
     newDict["OTP"] = otp
@@ -55,10 +83,11 @@ def register():
     newDict["registered"] = False
     accounts[hexToken] = newDict
 
+
+
     executor.submit(OTPAutoDestroy, hexToken)
     # otpThread = thr.Thread(target = OTPAutoDestroy, args=(timeStamp, hexToken))
     print(accounts)
-
     while True:
         try:
             msg = Message('Your Petreco Registration Code', sender = ("Petreco", "peter@mailtrap.io"), recipients = [email])
@@ -70,7 +99,7 @@ def register():
         except:
             raise SMTPServerDisconnected("Connection unexpectedly closed")
     
-    return "Message sent!"
+    return "Wait for OTP", 200
 
 @app.route("/registerConfirm", methods = ['POST'])
 def registerConfirm():
@@ -81,20 +110,26 @@ def registerConfirm():
     m = hashlib.sha256()
     m.update(str(email).encode("utf-8"))
     hexToken = m.hexdigest()
-    nowTimeStamp = dt.timestamp(dt.now())
-    registerTimeStamp = accounts[hexToken]["OTPdatestamp"]
-    secondsDiff = (dt.fromtimestamp(nowTimeStamp) - dt.fromtimestamp(registerTimeStamp)).seconds
 
-    if accounts[hexToken]["OTP"] != otp or secondsDiff > OTP_TTL:
-        accounts.pop(hexToken)
-        return "Could not create new account"
+    OTPalive = accounts.get(hexToken, False)
+
+    if OTPalive == False:
+        return "OTP expired", 409
+    if accounts[hexToken]["OTP"] != otp:
+        return "Wrong OTP", 409
     accounts[hexToken]["registered"] = True
     print(accounts)
-    return "Message sent!"
-
-
-
-
+    while True:
+        try:
+            msg = Message('Register success', sender = ("Petreco", "peter@mailtrap.io"), recipients = [email])
+            msg.html = \
+            f"Your registration was successful. You can login with your account"
+            \
+            mail.send(msg)
+            break
+        except:
+            raise SMTPServerDisconnected("Connection unexpectedly closed")
+    return "Register success", 200
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 8080)
+    app.run(host = '192.168.1.4', port = 8080, debug=True)

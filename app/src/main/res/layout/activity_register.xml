@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_app_in_use"
-    tools:context=".RegisterActivity">
+    tools:context=".ui.RegisterActivity">
+
     <ImageView
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -78,7 +79,7 @@
                 android:fontFamily="@font/kameron_reg"
                 android:hint="@string/mail_hint"
                 android:inputType="textEmailAddress"
-                android:textSize="22sp" />
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -103,7 +104,7 @@
                 android:maxLength="16"
                 android:hint="@string/pass_hint"
                 android:inputType="textPassword"
-                android:textSize="22sp" />
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/seePassReg"
@@ -125,7 +126,7 @@
                 android:hint="@string/repass_hint"
                 android:inputType="textPassword"
                 android:maxLength="16"
-                android:textSize="22sp" />
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/seeRePass"
@@ -148,4 +149,16 @@
             android:layout_marginEnd="30dp"
             android:text="@string/register_btn" />
     </LinearLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/animationView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="true"
+        app:lottie_url="@string/loading_url" />
 </androidx.constraintlayout.widget.ConstraintLayout>

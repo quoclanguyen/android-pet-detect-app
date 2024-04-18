@@ -4,6 +4,7 @@
     <color name="white">#D9D9D9</color>
     <color name="shadow">#857070</color>
     <color name="brown">#563A14</color>
+    <color name="blue">#3A7DC5</color>
     <color name="background_home">#b6aa9a</color>
     <color name="background_app_in_use">#D1CDC8</color>
     <color name="button_login">#efa037</color>
