@@ -5,6 +5,85 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_app_in_use"
     tools:context=".ui.PetsDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_breed_detail"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_margin="20dp"
+            android:foreground="@drawable/breed_img_border" />
+
+        <TextView
+            android:id="@+id/breed_name_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kameron_reg"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/character"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/brown"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/avg_weight"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/brown"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/life_span"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/brown"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/colors_variant"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/brown"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/buttonFindBreedInShops"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="90dp"
+                android:layout_marginStart="90dp"
+                android:textSize="16sp"
+                android:backgroundTint="@color/button_login"
+                android:text="@string/find_breed_btn" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

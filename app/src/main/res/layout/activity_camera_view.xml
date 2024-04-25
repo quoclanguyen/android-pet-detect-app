@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_camera"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app_in_use"
+    tools:context=".ui.CameraViewActivity">
+    <androidx.camera.view.PreviewView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/cam_view"
+        android:layout_marginTop="30dp"
+        android:layout_width="380dp"
+        android:layout_height="500dp"
+        android:foreground="@drawable/camera_border"
+        app:layout_constraintCircleRadius="3dp"
+        />
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:foreground="@drawable/take_photo"
+        android:onClick="takePhoto"
+        app:layout_constraintTop_toBottomOf="@id/cam_view"
+        app:layout_constraintLeft_toLeftOf="@id/cam_view"
+        app:layout_constraintRight_toRightOf="@id/cam_view"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

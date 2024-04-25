@@ -1,6 +1,7 @@
 package com.example.myapplication.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,16 +38,41 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private SharedPreferences sharedPreferences;
+    private static final String PREF_NAME = "petreco_pref";
+    private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
+    private static final String KEY_EMAIL = "email";
+    private boolean fromRegister;
+
+    @Override
+    public void onBackPressed() {
+        if (fromRegister) {
+            startActivity(new Intent(this, MainActivity.class));
+            return;
+        }
+        super.onBackPressed();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+        try {
+            Bundle extras = getIntent().getExtras();
+            fromRegister = extras.getBoolean("createdSuccess", false);
+        }
+        catch (NullPointerException exception) {
+            fromRegister = false;
+        }
+        Log.i("test", String.valueOf(fromRegister));
+        sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -79,6 +105,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void openForgotPassPage(View view) {
+        Intent intent = new Intent(this, ForgotPasswordActivity.class);
+        startActivity(intent);
+    }
+    private void setLoggedIn() {
+        sharedPreferences.edit().putBoolean(KEY_IS_LOGGED_IN, true).apply();
+    }
+    private void setEmail(String email) {
+        sharedPreferences.edit().putString(KEY_EMAIL, email).apply();
     }
 
     public void login(View view) {
@@ -94,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
 
         AsyncTask.execute(() -> {
             try {
-                URL url = new URL(getResources().getString(R.string.baseURL) + "/login");
+                URL url = new URL(getResources().getString(R.string.base_url) + "/login");
                 URLConnection con = (URLConnection) url.openConnection();
                 HttpURLConnection http = (HttpURLConnection) con;
                 http.setRequestMethod("POST");
@@ -143,17 +177,18 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                     Log.i("test", response.toString());
-//                    Intent intent = new Intent(this, ConfirmActivity.class);
-//                    intent.putExtra("email", email);
-//                    intent.putExtra("pass", passHash);
-//
-//                    startActivity(intent);
+                    Intent intent = new Intent(this, PetsListActivity.class);
+                    intent.putExtra("email", email);
+
+                    startActivity(intent);
                     new Handler(Looper.getMainLooper()).post(() -> {
+                        setLoggedIn();
+                        setEmail(email);
                         (Toast.makeText(this, "Login success", Toast.LENGTH_LONG)).show();
                         LottieAnimationView loading = findViewById(R.id.animationViewLogin);
                         loading.cancelAnimation();
                         loading.setFrame(0);
-                        Button regButton = findViewById(R.id.buttonReg);
+                        Button regButton = findViewById(R.id.buttonLog);
                         regButton.setEnabled(true);
                     });
                 }

@@ -1,6 +1,7 @@
 package com.example.myapplication.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,16 +15,39 @@ import com.example.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private SharedPreferences sharedPreferences;
+    private static final String PREF_NAME = "petreco_pref";
+    private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
+
+    @Override
+    public void onBackPressed() {
+        if (!isLoggedIn()) {
+            finishAffinity();
+        }
+        super.onBackPressed();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        if (isLoggedIn()) {
+            startActivity(new Intent(this, PetsListActivity.class));
+            finish();
+        }
+        else {
+            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
+        }
+    }
+
+    private boolean isLoggedIn() {
+        return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false);
     }
 
     public void openLoginPage(View view) {

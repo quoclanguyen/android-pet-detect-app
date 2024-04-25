@@ -44,6 +44,7 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
         AsyncTask.execute(() -> {
             try {
-                URL url = new URL(getResources().getString(R.string.baseURL) + "/register");
+                URL url = new URL(getResources().getString(R.string.base_url) + "/register");
                 URLConnection con = (URLConnection) url.openConnection();
                 HttpURLConnection http = (HttpURLConnection) con;
                 http.setRequestMethod("POST");

@@ -5,6 +5,40 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_app_in_use"
     tools:context=".ui.PetsListActivity">
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:backgroundTint="@color/background_home"
+        app:tabTextAppearance="@style/tabFont"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabSelectedTextColor="@color/tab_selected"
+        app:tabSelectedTextAppearance="@style/tabFont"
+        app:tabIndicatorColor="@color/brown"
+        >
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tab_pet_breed"
+            android:text="@string/tab_pets_breeds"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tab_profile"
+            android:text="@string/tab_profile" />
+
+    </com.google.android.material.tabs.TabLayout>
+    
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_pager_pet_breeds"
+        android:layout_below="@id/tab_layout"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
