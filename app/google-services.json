@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "686391738507",
-    "project_id": "abiding-truth-234413",
-    "storage_bucket": "abiding-truth-234413.appspot.com"
+    "project_number": "1026360007714",
+    "project_id": "pivotal-essence-305515",
+    "storage_bucket": "pivotal-essence-305515.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:686391738507:android:4fe5ac7529aaf625dc548e",
+        "mobilesdk_app_id": "1:1026360007714:android:10ee8ea0e519c52e32be7b",
         "android_client_info": {
-          "package_name": "com.example.myapplication.ui"
+          "package_name": "com.example.myapplication"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "686391738507-fep95j838fp46dcdjm47a35t0err5kdd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBuljp8Nyko6Hv4yV-2-Bfn1QLdrv0xpkY"
+          "current_key": "AIzaSyDK-8P5fohhWSeEEJ4iVyL5kea7A7vG4aI"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "686391738507-fep95j838fp46dcdjm47a35t0err5kdd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
