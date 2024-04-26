@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.R;
 
+import io.flutter.embedding.android.FlutterActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -27,8 +29,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openLoginPage(View view) {
-        Intent loginPage = new Intent(this, LoginActivity.class);
-        startActivity(loginPage);
+//        Intent loginPage = new Intent(this, LoginActivity.class);
+//        startActivity(loginPage);
+        startActivity(
+                FlutterActivity
+                        .withNewEngine()
+                        .initialRoute("/")
+                        .build(this)
+        );
     }
 
     public void openRegPage(View view) {

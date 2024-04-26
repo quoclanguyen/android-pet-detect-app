@@ -25,10 +25,30 @@ android {
                 "proguard-rules.pro"
             )
         }
+        create("profile") {
+            initWith(getByName("debug"))
+        }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+//    defaultConfig {
+//        ndk {
+//            // Filter for architectures supported by Flutter.
+//            abiFilters.add("armeabi-v7a")
+//            abiFilters.add("arm64-v8a")
+//            abiFilters.add("x86_64")
+//        }
+//    }
+
+
+}
+
+configurations {
+    getByName("profileImplementation") {
     }
 }
 
@@ -45,7 +65,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.android.gms:play-services-auth:21.1.0")
+    implementation("com.google.firebase:firebase-analytics")
+
+    implementation("com.example.flutter_module:flutter_release:1.0")
+    add("profileImplementation", "com.example.flutter_module:flutter_profile:1.0")
+
+
 }
