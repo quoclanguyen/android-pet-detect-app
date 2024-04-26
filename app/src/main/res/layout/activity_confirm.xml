@@ -46,9 +46,16 @@
             app:OtpLineColor="@color/background_home"
             app:OtpState_filled="true"
             app:OtpViewType="line" />
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/otp_ttl"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:textColor="@color/blue"
+            />
         <Button
-            android:id="@+id/buttonReg"
+            android:id="@+id/button_confirm_otp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="18dp"

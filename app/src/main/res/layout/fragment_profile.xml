@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/circle_avatar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/circle"
+        />
+    <TextView
+        android:id="@+id/profile_avatar"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_alignEnd="@+id/circle_avatar"
+        android:layout_alignStart="@+id/circle_avatar"
+        android:layout_alignBottom="@+id/circle_avatar"
+        android:layout_alignTop="@+id/circle_avatar"
+        android:gravity="center"
+        android:textSize="80sp"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/white"
+        />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/circle_avatar"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/inter_bold"
+            android:id="@+id/email_profile"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
+        <TextView
+            android:gravity="start"
+            android:id="@+id/change_password"
+            android:padding="20dp"
+            android:text="@string/change_password"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/kaisei_reg"/>
+
+        <TextView
+            android:gravity="start"
+            android:id="@+id/about_us"
+            android:padding="20dp"
+            android:text="@string/about_us"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/kaisei_reg"/>
+        <Button
+            android:layout_marginTop="80dp"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginStart="120dp"
+            android:layout_marginEnd="120dp"
+            android:layout_gravity="center"
+            android:text="@string/log_out"
+            android:textSize="18sp"
+            android:id="@+id/button_logout"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="@color/exit"
+            android:backgroundTint="@color/background_home"
+            />
+    </TableLayout>
+
+
+</RelativeLayout>

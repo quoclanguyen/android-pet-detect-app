@@ -141,7 +141,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
         AsyncTask.execute(() -> {
             try {
-                URL url = new URL(getResources().getString(R.string.baseURL) + "/register");
+                URL url = new URL(getResources().getString(R.string.base_url) + "/register");
                 URLConnection con = (URLConnection) url.openConnection();
                 HttpURLConnection http = (HttpURLConnection) con;
                 http.setRequestMethod("POST");

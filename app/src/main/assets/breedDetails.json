@@ -1,0 +1,224 @@
+[
+  {
+    "characteristic": "Active, playful, and curious",
+    "avg_weight": 4,
+    "colors": ["Ruddy", "Red", "Blue", "Fawn"],
+    "life_span": 15
+  },
+  {
+    "characteristic": "Powerful, loyal, and protective",
+    "avg_weight": 36,
+    "colors": ["White", "Brindle", "Fawn", "Red"],
+    "life_span": 10
+  },
+  {
+    "characteristic": "Strong, agile, and confident",
+    "avg_weight": 28,
+    "colors": ["Blue", "Red", "Brindle", "Black"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Gentle, friendly, and laid-back",
+    "avg_weight": 25,
+    "colors": ["Tricolor", "Lemon & White", "Red & White"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Affectionate, curious, and merry",
+    "avg_weight": 11,
+    "colors": ["Tricolor", "White & Lemon", "White & Chocolate"],
+    "life_span": 13
+  },
+  {
+    "characteristic": "Energetic, intelligent, and inquisitive",
+    "avg_weight": 5,
+    "colors": ["Brown", "Snow", "Silver", "Charcoal"],
+    "life_span": 14
+  },
+  {
+    "characteristic": "Gentle, affectionate, and sociable",
+    "avg_weight": 5,
+    "colors": ["Seal Point", "Blue Point", "Chocolate Point"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Affectionate, playful, and sociable",
+    "avg_weight": 4,
+    "colors": ["Black"],
+    "life_span": 15
+  },
+  {
+    "characteristic": "Playful, energetic, and friendly",
+    "avg_weight": 30,
+    "colors": ["Fawn", "Brindle"],
+    "life_span": 10
+  },
+  {
+    "characteristic": "Gentle, calm, and easygoing",
+    "avg_weight": 5,
+    "colors": ["Blue", "Cream", "Black", "White"],
+    "life_span": 14
+  },
+  {
+    "characteristic": "Lively, alert, and confident",
+    "avg_weight": 2,
+    "colors": ["Black", "Fawn", "White"],
+    "life_span": 15
+  },
+  {
+    "characteristic": "Affectionate, intelligent, and loyal",
+    "avg_weight": 4,
+    "colors": ["Silver", "Bronze", "Smoke"],
+    "life_span": 14
+  },
+  {
+    "characteristic": "Friendly, outgoing, and adaptable",
+    "avg_weight": 15,
+    "colors": ["Liver", "Golden", "Black", "Red"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Athletic, alert, and independent",
+    "avg_weight": 25,
+    "colors": ["Tricolor", "Blue Belton", "Orange Belton"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Energetic, friendly, and versatile",
+    "avg_weight": 30,
+    "colors": ["Liver", "Liver & White", "Liver Ticked"],
+    "life_span": 14
+  },
+  {
+    "characteristic": "Gentle, patient, and affectionate",
+    "avg_weight": 54,
+    "colors": ["White"],
+    "life_span": 10
+  },
+  {
+    "characteristic": "Affectionate, playful, and intelligent",
+    "avg_weight": 6,
+    "colors": ["Black", "White", "Fawn", "Cream"],
+    "life_span": 14
+  },
+  {
+    "characteristic": "Loyal, dignified, and affectionate",
+    "avg_weight": 4,
+    "colors": ["Black & White", "Red & White"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Friendly, alert, and lively",
+    "avg_weight": 18,
+    "colors": ["Gray & Black", "Cream & Black"],
+    "life_span": 13
+  },
+  {
+    "characteristic": "Gentle, loyal, and good-natured",
+    "avg_weight": 60,
+    "colors": ["Red", "Lion Yellow"],
+    "life_span": 9
+  },
+  {
+    "characteristic": "Gentle, sociable, and playful",
+    "avg_weight": 8,
+    "colors": ["Brown Tabby", "White", "Black", "Red"],
+    "life_span": 13
+  },
+  {
+    "characteristic": "Active, extroverted, and intelligent",
+    "avg_weight": 5,
+    "colors": ["Black & Rust", "Chocolate & Rust", "Red"],
+    "life_span": 15
+  },
+  {
+    "characteristic": "Gentle, sweet-tempered, and patient",
+    "avg_weight": 65,
+    "colors": ["Black", "Brown"],
+    "life_span": 10
+  },
+  {
+    "characteristic": "Gentle, quiet, and affectionate",
+    "avg_weight": 5,
+    "colors": ["White", "Black", "Blue", "Cream"],
+    "life_span": 14
+  },
+  {
+    "characteristic": "Active, extroverted, and intelligent",
+    "avg_weight": 3,
+    "colors": ["Black", "White", "Red", "Orange"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Charming, mischievous, and affectionate",
+    "avg_weight": 6,
+    "colors": ["Fawn", "Black"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Relaxed, affectionate, and easygoing",
+    "avg_weight": 5,
+    "colors": ["Seal", "Blue", "Chocolate", "Lilac"],
+    "life_span": 15
+  },
+  {
+    "characteristic": "Gentle, quiet, and shy",
+    "avg_weight": 5,
+    "colors": ["Blue"],
+    "life_span": 15
+  },
+  {
+    "characteristic": "Gentle, friendly, and patient",
+    "avg_weight": 91,
+    "colors": ["Red & White", "Reddish-Brown Brindle", "Mahogany"],
+    "life_span": 10
+  },
+  {
+    "characteristic": "Friendly, gentle, and adaptable",
+    "avg_weight": 23,
+    "colors": ["White"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Feisty, confident, and independent",
+    "avg_weight": 10,
+    "colors": ["Black", "Wheaten"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Bold, good-natured, and spirited",
+    "avg_weight": 10,
+    "colors": ["Red", "Black & Tan", "Sesame"],
+    "life_span": 13
+  },
+  {
+    "characteristic": "Affectionate, social, and vocal",
+    "avg_weight": 4,
+    "colors": ["Seal Point", "Chocolate Point", "Blue Point"],
+    "life_span": 15
+  },
+  {
+    "characteristic": "Affectionate, lively, and curious",
+    "avg_weight": 4,
+    "colors": ["White", "Black", "Blue", "Pink", "Champagne"],
+    "life_span": 14
+  },
+  {
+    "characteristic": "Brave, tenacious, and affectionate",
+    "avg_weight": 16,
+    "colors": ["Brindle", "Fawn", "Blue", "Black"],
+    "life_span": 12
+  },
+  {
+    "characteristic": "Affectionate, cheerful, and friendly",
+    "avg_weight": 16,
+    "colors": ["Wheaten"],
+    "life_span": 13
+  },
+  {
+    "characteristic": "Bold, confident, and spirited",
+    "avg_weight": 3,
+    "colors": ["Black & Tan"],
+    "life_span": 15
+  }
+]

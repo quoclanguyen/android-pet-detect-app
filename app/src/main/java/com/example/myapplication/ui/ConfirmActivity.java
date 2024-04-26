@@ -3,12 +3,14 @@ package com.example.myapplication.ui;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -35,6 +37,10 @@ import java.util.Objects;
 public class ConfirmActivity extends AppCompatActivity {
     private String email;
     private String pass;
+    private final long OTP_TTL_MAX = 60 * 3 * 1000;
+    private long timeLeftInMillis = OTP_TTL_MAX;
+    private TextView otpTtlTextView;
+    private CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +57,42 @@ public class ConfirmActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        startCountDown();
+    }
+    private void startCountDown() {
+        otpTtlTextView = findViewById(R.id.otp_ttl);
+        countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                timeLeftInMillis = 0;
+                updateCountDownText();
+            }
+        }.start();
+    }
+    private void updateCountDownText() {
+        int minutes = (int) (timeLeftInMillis / 1000) / 60;
+        int seconds = (int) (timeLeftInMillis / 1000) % 60;
+
+        String timeLeftFormatted = String.format("OTP will be expired after %02d:%02d minutes", minutes, seconds);
+        otpTtlTextView.setText(timeLeftFormatted);
+    }
+
     public void confirmOTP(View view) {
         EditText otpView = findViewById(R.id.otp_view);
         String otp = otpView.getText().toString();
 
         AsyncTask.execute(() -> {
             try {
-                URL url = new URL(getResources().getString(R.string.baseURL) + "/registerConfirm");
+                URL url = new URL(getResources().getString(R.string.base_url) + "/registerConfirm");
                 URLConnection con = (URLConnection) url.openConnection();
                 HttpURLConnection http = (HttpURLConnection) con;
                 http.setRequestMethod("POST");
@@ -87,7 +122,9 @@ public class ConfirmActivity extends AppCompatActivity {
                     }
                     Log.i("test", response.toString());
                     Intent intent = new Intent(this, LoginActivity.class);
+                    intent.putExtra("createdSuccess", true);
                     startActivity(intent);
+                    finish();
                 }
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
@@ -95,6 +132,13 @@ public class ConfirmActivity extends AppCompatActivity {
                 throw new RuntimeException(e);
             }
         });
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
     }
 
     public void resendOTP(View view) {
@@ -106,7 +150,7 @@ public class ConfirmActivity extends AppCompatActivity {
 //        });
         AsyncTask.execute(() -> {
             try {
-                URL url = new URL(getResources().getString(R.string.baseURL) + "/register");
+                URL url = new URL(getResources().getString(R.string.base_url) + "/register");
                 URLConnection con = (URLConnection) url.openConnection();
                 HttpURLConnection http = (HttpURLConnection) con;
                 http.setRequestMethod("POST");
@@ -135,6 +179,13 @@ public class ConfirmActivity extends AppCompatActivity {
                         (Toast.makeText(this, "OTP sent", Toast.LENGTH_LONG)).show();
                     });
                 }
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    if (countDownTimer != null) {
+                        countDownTimer.cancel();
+                    }
+                    timeLeftInMillis = OTP_TTL_MAX;
+                    startCountDown();
+                });
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
