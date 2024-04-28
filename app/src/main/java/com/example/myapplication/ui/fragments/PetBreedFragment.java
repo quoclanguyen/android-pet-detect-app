@@ -16,6 +16,8 @@ import com.example.myapplication.R;
 import com.example.myapplication.ui.CameraViewActivity;
 import com.example.myapplication.ui.adapters.BreedListAdapter;
 
+import io.flutter.embedding.android.FlutterActivity;
+
 public class PetBreedFragment extends Fragment {
 
     @Override
@@ -26,8 +28,14 @@ public class PetBreedFragment extends Fragment {
 
         ImageView openCamera = requireActivity().findViewById(R.id.open_camera);
         openCamera.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), CameraViewActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(getContext(), CameraViewActivity.class);
+//            startActivity(intent);
+                    startActivity(
+                FlutterActivity
+                        .withNewEngine()
+                        .initialRoute("/camera_screen")
+                        .build(requireActivity())
+        );
         });
     }
 

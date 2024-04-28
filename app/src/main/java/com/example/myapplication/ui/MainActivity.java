@@ -53,14 +53,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openLoginPage(View view) {
-//        Intent loginPage = new Intent(this, LoginActivity.class);
-//        startActivity(loginPage);
-        startActivity(
-                FlutterActivity
-                        .withNewEngine()
-                        .initialRoute("/")
-                        .build(this)
-        );
+        Intent loginPage = new Intent(this, LoginActivity.class);
+        startActivity(loginPage);
     }
 
     public void openRegPage(View view) {

@@ -8,16 +8,16 @@ pip install -r requirements.txt
 ### Results
 ### 1. UIs
 *Home page*
-![Home UI](images/homeUI.jpg)
+![Home UI](app/src/assets/images/homeUI.jpg)
 
 *Register page*
-![Register UI](images/registerUI.jpg)
+![Register UI](app/src/assets/images/registerUI.jpg)
 
 *OTP page*
-![OTP UI](images/OTPUI.jpg)
+![OTP UI](app/src/assets/images/OTPUI.jpg)
 
 *Login page*
-![Login UI](images/loginUI.jpg)
+![Login UI](app/src/assets/images/loginUI.jpg)
 
 ### 2. Detection model
 
