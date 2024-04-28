@@ -1,0 +1,97 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.abdelaziz_mahdy.pytorch_lite",
+    "module": "pytorch_lite_debug",
+    "version": "1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "debugVariantDebugApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "io.flutter",
+          "module": "flutter_embedding_debug",
+          "version": {
+            "requires": "1.0.0-a86e74cf06f7a7f5f3a52a9d6c1e8f62ef1253dc"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "pytorch_lite_debug-1.0.aar",
+          "url": "pytorch_lite_debug-1.0.aar",
+          "size": 36108,
+          "sha512": "aee2eafd617d2d6babfbf50e7dd271934b5bcf7e6f34202117fd16a9ab0dbfa6e1e315783be3d6c877706c7fbe9e371d803d614f8279337be12d6e6ffdce0671",
+          "sha256": "e90b32deb25746602451a37714cb2ff92f4d2eedc35b1adf0d0d25edcd7a0e28",
+          "sha1": "6a768dc60a424736682021a53a871a37e2d191de",
+          "md5": "09edf1e4a7a533d0083d979041b1c627"
+        }
+      ]
+    },
+    {
+      "name": "debugVariantDebugRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "io.flutter",
+          "module": "flutter_embedding_debug",
+          "version": {
+            "requires": "1.0.0-a86e74cf06f7a7f5f3a52a9d6c1e8f62ef1253dc"
+          }
+        },
+        {
+          "group": "org.pytorch",
+          "module": "pytorch_android",
+          "version": {
+            "requires": "2.1.0"
+          }
+        },
+        {
+          "group": "org.pytorch",
+          "module": "pytorch_android_torchvision",
+          "version": {
+            "requires": "2.1.0"
+          }
+        },
+        {
+          "group": "com.facebook.soloader",
+          "module": "nativeloader",
+          "version": {
+            "requires": "0.10.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "pytorch_lite_debug-1.0.aar",
+          "url": "pytorch_lite_debug-1.0.aar",
+          "size": 36108,
+          "sha512": "aee2eafd617d2d6babfbf50e7dd271934b5bcf7e6f34202117fd16a9ab0dbfa6e1e315783be3d6c877706c7fbe9e371d803d614f8279337be12d6e6ffdce0671",
+          "sha256": "e90b32deb25746602451a37714cb2ff92f4d2eedc35b1adf0d0d25edcd7a0e28",
+          "sha1": "6a768dc60a424736682021a53a871a37e2d191de",
+          "md5": "09edf1e4a7a533d0083d979041b1c627"
+        }
+      ]
+    }
+  ]
+}

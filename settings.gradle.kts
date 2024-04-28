@@ -14,6 +14,7 @@ pluginManagement {
 
 rootProject.name = "My Application"
 include(":app")
+var projectDirPath = rootProject.projectDir.path
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -22,7 +23,8 @@ dependencyResolutionManagement {
         mavenCentral()
         maven("https://jitpack.io" )
         maven(url = "https://storage.googleapis.com/download.flutter.io")
-        maven(url = "C:\\Users\\ThongNguyen\\Downloads\\trashcode\\android test\\add flutter to android native\\flutter_module\\build\\host\\outputs\\repo")
+
+        maven(url = "${projectDirPath}\\app\\src\\assets\\build\\host\\outputs\\repo")
     }
 }
 
